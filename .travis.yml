@@ -3,6 +3,9 @@ branches:
   only:
   - source
 language: node_js
+cache:
+  directories:
+    - node_modules
 node_js:
 - 1.5.1
 install:

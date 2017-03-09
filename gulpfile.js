@@ -210,8 +210,22 @@ gulp.task('static', ['cleanstatic'], function () {
         .pipe(gulp.dest('dist/static'));
 });
 
+gulp.task('cleancname', function () {
+    'use strict';
+
+    return gulp.src('dist/CNAME', {read: false})
+        .pipe(rimraf());
+});
+
+gulp.task('cname', ['cleancname'], function () {
+    'use strict';
+
+    return gulp.src('site/content/misc/CNAME')
+        .pipe(gulp.dest('dist'));
+});
+
 gulp.task('content', ['pages']);
-gulp.task('default', ['content', 'styles', 'scripts', 'fonts', 'images', 'static']);
+gulp.task('default', ['content', 'styles', 'scripts', 'fonts', 'images', 'static', 'cname']);
 
 gulp.task('watch', ['default'], function () {
     'use strict';

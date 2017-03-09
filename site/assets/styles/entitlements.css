@@ -1,0 +1,24 @@
+table.table-process {
+	border: none !important;
+}
+
+.border-none {
+	border: none !important
+}
+
+tr.label-severity>td {
+	border-width: 0px 0px 1px 0px !important;
+}
+
+td.label-level {
+	vertical-align: middle !important;
+	border-width: 0px 1px 0px 0px !important;
+}
+
+dl {
+	margin-bottom: 0px !important;
+}
+
+dl > :first-child {
+	margin-top: 0px !important;
+}

@@ -1,0 +1,23 @@
+sudo: false
+branches:
+  only:
+  - source
+language: node_js
+node_js:
+- 1.5.1
+install:
+- npm install -g gulp
+- npm install
+script:
+- bash ./deploy.sh
+env:
+  global:
+    - URL_ROOT=/
+    - ENCRYPTION_LABEL: "53ff118c31fc"
+    - COMMIT_AUTHOR_EMAIL: "patrick@deadlypenguin.com"
+notifications:
+  email:
+    recipients:
+    - patrick@deadlypenguin.com
+    on_success: always
+    on_failure: always

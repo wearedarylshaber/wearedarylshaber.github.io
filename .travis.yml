@@ -1,0 +1,27 @@
+sudo: false
+branches:
+  only:
+  - master
+language: node_js
+node_js:
+- 1.5.1
+install:
+- npm install -g gulp
+- npm install
+before_script:
+- git remote set-url origin "https://${GH_TOKEN}@github.com/wearedarylshaber/wearedarylshaber.github.io.git"
+- git config --global user.email "patrick@deadlypenguin.com"
+- git config --global user.name "Travis-CI"
+script:
+- bash ./deploy.sh
+env:
+  global:
+    - URL_ROOT=/
+    - ENCRYPTION_LABEL: "53ff118c31fc"
+    - COMMIT_AUTHOR_EMAIL: "patrick@deadlypenguin.com"
+notifications:
+  email:
+    recipients:
+    - patrick@deadlypenguin.com
+    on_success: always
+    on_failure: always
